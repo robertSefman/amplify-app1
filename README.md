@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://youtu.be/HZUlQ7Z2xHQ
 
-## Available Scripts
+in /c/react:
 
-In the project directory, you can run:
+- npx create-react-app amplify-app1
+- yarn add aws-amplify aws-amplify-react uuid
 
-### `yarn start`
+for configuration use win cmd, not git bash!!!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+amplify configure (create user)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- user: amplify-app1-user
+- profile name (local): amplify-app1-user
 
-### `yarn test`
+amplify init (creates amplify project)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- name: amplify-app1
+- environment: dev
 
-### `yarn build`
+/amplify/backend -- local
+/amplify/#current-cloud-backend -- what is pushed
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+/src/aws-exports.js
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+amplify add api ( possible aPI-s: graphQL, lambda )
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+name: amplifyapp1api
+ali key desc: amplifyApp1ApiKey
 
-### `yarn eject`
+@model :: aws Amplify create all models for you (part of Amplify cli transform library)
+7 directives
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+https://youtu.be/HZUlQ7Z2xHQ?t=3858
+subscription not working as expected
+https://github.com/aws-amplify/amplify-cli/issues/2935
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Add auth:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+amplify add auth (default configuration with user name)
+https://aws-amplify.github.io/docs/js/react
+amplifyapp1c429bc19
+https://youtu.be/HZUlQ7Z2xHQ?t=4001
+https://youtu.be/HZUlQ7Z2xHQ?t=4254
+https://medium.com/@coryschimmoeller/customizing-the-authentication-experience-of-amplifys-withauthenticator-e6f2089ff469
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+you need amplify mock running
 
-## Learn More
+amplify configure api
+...update auth settings - to Amazon Cognito user pool
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+at adding connection in schema, i need to delete old data (in git bash):
+rm -r amplify/mock-data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+groups: ["Admin"] can be read from database, like owner
 
-### Code Splitting
+Lambda resolver: (get Crypto data from Rest API)
+https://youtu.be/HZUlQ7Z2xHQ?t=5918
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+https://aws-amplify.github.io/
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Publish:
+amplify push
+amplify add hosting
+amplify publish
